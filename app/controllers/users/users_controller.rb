@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Users::UsersController < ApplicationController
 #  before_action :authenticate_user!
   layout 'application'
   def after_sign_in_path_for(user)

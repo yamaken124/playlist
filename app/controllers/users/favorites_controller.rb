@@ -1,4 +1,4 @@
-class FavoritesController < ApplicationController
+class Users::FavoritesController < ApplicationController
 
   def create
     favorite = Favorite.new(playlist_id: params[:playlist_id], user_id: params[:user_id])

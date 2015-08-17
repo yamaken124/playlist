@@ -2,7 +2,7 @@ require 'rubygems'
 require 'httparty'
     require 'socket'
 
-class PlaylistsController < UsersController
+class Users::PlaylistsController < Users::UsersController
 
   def after_sign_in_path_for(user)
     ranking_playlists_path

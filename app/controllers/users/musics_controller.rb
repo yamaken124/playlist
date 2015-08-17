@@ -1,4 +1,4 @@
-class MusicsController < ApplicationController
+class Users::MusicsController < ApplicationController
 #  before_action :authenticate_user!
  
   def new

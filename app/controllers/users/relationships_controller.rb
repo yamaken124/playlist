@@ -1,4 +1,4 @@
-class RelationshipsController < ApplicationController
+class Users::RelationshipsController < ApplicationController
 
   def create
     relationship = Relationship.new(follower_id: current_user.id, followed_id: params[:user_id])
