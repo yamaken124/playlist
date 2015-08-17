@@ -1,4 +1,4 @@
-class CommentsController < UsersController
+class Users::CommentsController < Users::UsersController
 #  before_action :authenticate_user!
 
   def index

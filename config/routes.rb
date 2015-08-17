@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'playlists#top_page'
+  root 'users/playlists#top_page'
 
   devise_for :users, :controllers => {
     :sessions => 'users/sessions',
@@ -11,32 +11,34 @@ Rails.application.routes.draw do
     :registrations => 'admin/registrations'
   }
 
-  resources :playlists do
-    resources :comments, only: [:index, :create, :new, :edit, :update, :destroy]
-    resources :favorites, only: [:create] do
+  scope module: :users do
+    resources :playlists do
+      resources :comments, only: [:index, :create, :new, :edit, :update, :destroy]
+      resources :favorites, only: [:create] do
+        collection do
+          delete '/:user_id', controller: :favorites, action: :destroy, as: :destroy
+        end
+      end
+      resources :musics, only: [:new, :create, :destroy] do
+        collection do
+          post :search
+        end
+      end
       collection do
-        delete '/:user_id', controller: :favorites, action: :destroy, as: :destroy
+        get :timeline
+        get :ranking
+        get :genre
+        get 'genre/:id', controller: :playlists, action: :each_genre, as: :each_genre
       end
     end
-    resources :musics, only: [:new, :create, :destroy] do
-      collection do
-        post :search
-      end
-    end
-    collection do
-      get :timeline
-      get :ranking
-      get :genre
-      get 'genre/:id', controller: :playlists, action: :each_genre, as: :each_genre
-    end
-  end
 
-  resources :users, only: [:show] do
-    resources :relationships, only: [:create, :destroy]
-    member do
-      get :favorites
-      get :follow
-      get :follower
+    resources :users, only: [:show] do
+      resources :relationships, only: [:create, :destroy]
+      member do
+        get :favorites
+        get :follow
+        get :follower
+      end
     end
   end
 
