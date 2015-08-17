@@ -12,12 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require paper/loader
 //= require jquery.turbolinks
 //= require turbolinks
 //= require playlists/playlists
-
-//= require bootstrap
-
-
-// require twitter/bootstrap

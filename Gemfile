@@ -17,12 +17,12 @@ end
 
 
 # 4/16 install for bootstrap 楽したい
-gem 'twitter-bootswatch-rails', '~> 3.1.1'
-gem 'twitter-bootswatch-rails-helpers'
+# gem 'twitter-bootswatch-rails', '~> 3.1.1'
+# gem 'twitter-bootswatch-rails-helpers'
 
 # 4/16 install for bootstrap
-gem 'less-rails'
-gem 'twitter-bootstrap-rails'
+# gem 'less-rails'
+# gem 'twitter-bootstrap-rails'
 # 4/9 install for comment by ajax
 gem 'jquery-turbolinks'
 
@@ -82,3 +82,6 @@ group :development do
   gem 'better_errors'
     gem 'binding_of_caller'
 	end
+
+# for uploading to heroku
+gem 'rails 12factor', group: :production

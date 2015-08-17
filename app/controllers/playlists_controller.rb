@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'httparty'
+    require 'socket'
 
 class PlaylistsController < UsersController
 
@@ -15,6 +16,7 @@ class PlaylistsController < UsersController
   end
 
   def index
+    p Socket.getifaddrs.select{|x| x.name == "en0"}[2]
     @playlists = Playlist.all.order("updated_at DESC")
   end
 
